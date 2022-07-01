@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/mainapp/requests.css' %}">
+</head>
+
+<body>
+    {% load static %}
+
+    <div class="continer">
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Responsive Nav</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        </head>
+
+        <body>
+            <header>
+                {% if messages %}
+                <ul class="messages"
+                    style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </header>
+            <nav>
+                <ul>
+                    <a href="applicantpage">
+                        <li>Home</li>
+                    </a>
+                    <!-- <a href="addequipment">
+                        <li>Search</li>
+                    </a> -->
+                    <a href="requests">
+                        <li>Requests</li>
+                    </a>
+                    <button class="but"><a href="handleLogout">Logout</a></button>
+                </ul>
+                <div class="handle"></div>
+            </nav>
+
+            <div class="container">
+                <div class="mainbox">
+                    <div class="innerbox">Euipment Name </div>
+                    <div class="innerbox">Equipment Holder Phone Number </div>
+                    <div class="innerbox">Rent</div>
+                    <div class="innerbox">Take date</div>
+                    <div class="innerbox">Give date</div>
+                    <div class="innerbox">Total Rent</div>
+                    <div class="innerbox">Address of equipmnent holder</div>
+                    <div class="innerbox">Accepted/Rejected</div>
+                </div>
+                {% for i in requests %}
+                <div class="mainbox1">
+                    <div class="innerbox1" value="{{i.equipmentname}}" name="equipmentname">{{i.equipment_name}}</div>
+                    <div class="innerbox1" value="{{i.company}}">{{i.equipmentholder_phone_no}}
+                    </div>
+                    <div class="innerbox1" value="{{i.old}}">{{i.rent}}</div>
+                    <div class="innerbox1" value="{{i.rent}}">{{i.take_date}}</div>
+                    <div class="innerbox1">{{i.give_date}}</div>
+                    <div class="innerbox1">{{i.total_rent}}</div>
+                    <div class="innerbox1">Village: {{i.equipmentholder_village}}
+                        <br>
+                        Taluka:{{i.equipmentholder_taluka}}
+                        <br>
+                        District:{{i.equipmentholder_district}}
+                    </div>
+                    
+                    <div class="innerbox1">
+                        <div class="b">
+                            {{i.request_status}} </buttton>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </body>
+
+        </html>
+    </div>
+    <script>
+        $('.handle').on('click', function () {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>

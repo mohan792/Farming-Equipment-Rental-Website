@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/mainapp/deleteequipment.css' %}">
+</head>
+
+<body>
+    {% load static %}
+
+    <div class="continer">
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Responsive Nav</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        </head>
+
+        <body>
+            <header>
+                {% if messages %}
+                <ul class="messages"
+                    style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </header>
+            <nav>
+                <ul>
+                    <a href="equipmentholderpage">
+                        <li>Home</li>
+                    </a>
+                    <a href="addequipment">
+                        <li>Add Equipment</li>
+                    </a>
+                    <a href="deleteequipment">
+                        <li>Edit details of equipment</li>
+                    </a>
+                    <button class="but"><a href="handleLogout">Logout</a></button>
+                </ul>
+                <div class="handle">Menu</div>
+            </nav>
+
+            <div class="container">
+                <div class="mainbox">
+                    <div class="innerbox">Euipment Name </div>
+                    <div class="innerbox">Company Name</div>
+                    <div class="innerbox">Age of Equipment</div>
+                    <div class="innerbox">Rent</div>
+                    <div class="innerbox">Image1</div>
+                    <div class="innerbox">Image2</div>
+                    <div class="innerbox">Image3</div>
+                    <div class="innerbox">Image4</div>
+                    <div class="innerbox">Accept/Reject</div>
+                </div>
+                {% for i in allequipments %}
+                <div class="mainbox1">
+                    <div class="innerbox1" value="{{i.equipmentname}}" name="equipmentname">{{i.equipmentname}}</div>
+                    <div class="innerbox1" value="{{i.company}}">{{i.company}} <br>
+                    </div>
+                    <div class="innerbox1" value="{{i.old}}">{{i.old}}</div>
+                    <div class="innerbox1" value="{{i.rent}}">{{i.rent}}</div>
+                    <div class="innerbox1" value="i.image1"><img src="/media/{{i.image1}}" alt="" width="150" height="179"></div>
+                    <div class="innerbox1" value="i.image2"><img src="/media/{{i.image2}}" alt="" width="150" height="179"></div>
+                    <div class="innerbox1"><img src="/media/{{i.image3}}" alt="" width="150" height="179"></div>
+                    <div class="innerbox1"><img src="/media/{{i.image4}}" alt="" width="150" height="179"></div>
+                    <div class="innerbox1">
+                       <div class="b"><buttton class="b1"> <a href="delete/{{i.equipment_id}}">delete</a> </buttton></div> 
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </body>
+
+        </html>
+    </div>
+    <script>
+        $('.handle').on('click', function () {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>

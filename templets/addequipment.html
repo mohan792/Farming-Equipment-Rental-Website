@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/mainapp/addequipment.css' %}">
+</head>
+
+<body>
+    {% load static %}
+
+    <div class="continer">
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Responsive Nav</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        </head>
+
+        <body>
+            <header>
+                {% if messages %}
+                <ul class="messages"
+                    style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </header>
+            <nav>
+                <ul>
+                    <a href="equipmentholderpage">
+                        <li>Home</li>
+                    </a>
+                    <a href="addequipment">
+                        <li>Add Equipment</li>
+                    </a>
+                    <a href="deleteequipment">
+                        <li>Edit details of equipment</li>
+                    </a>
+                    <button class="but"><a href="handleLogout">Logout</a></button>
+                </ul>
+                <div class="handle">Menu</div>
+            </nav>
+            <div class="con">
+            <h1 id="title">Add equipment</h1>
+            <p id="description">Fill out the form below...</p>
+            <form action="add" method="post" id="survey-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <label for="name" id="name-label">Enter Equipment name
+                        <input type="text" name="equipmentname" id="name" required
+                            placeholder="Enter your Full Name" /></label>
+                    <label for="email" id="email-label">Rent
+                        <input type="number" name="rent" id="email" required placeholder="Enter rent" /></label>
+                    <label for="number" id="number-label">Company name
+                        <input type="text" name="company" id="number" min="13" max="120" required
+                            placeholder="Enter your age" /></label>
+                </fieldset>
+                <fieldset>
+                    <label for="name" id="name-label">How old equipment is?
+                        <input type="number" name="old" id="name" required
+                            placeholder="Enter your Full Name" /></label>
+                    <label for="email" id="email-label">Image 
+                        <input type="file" id="img" name="img1" accept="image/*"></label>
+                        <input type="file" id="img" name="img2" accept="image/*"></label>
+                        <input type="file" id="img" name="img3" accept="image/*"></label>
+                        <input type="file" id="img" name="img4" accept="image/*"></label>
+                </fieldset>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+        </body>
+
+        </html>
+    </div>
+    <script>
+        $('.handle').on('click', function () {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>

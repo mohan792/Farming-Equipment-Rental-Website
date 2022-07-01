@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'mainapp/loginpage.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    <form action="handellogin" method="post">
+      {% csrf_token %}
+      <h3>Login</h3>
+      <label for="username">Username:</label>
+      <input type="text" placeholder="Enter Username" size="40" name="username" required>
+      <label for="username">Password:</label>
+      <input type="password" placeholder="Enter Password" size="40" name="password" required> >
+      <br><br>
+      <label for="post">login as</label>
+      <select name="post" id="post">
+        <option value="applicant">Applicant</option>
+        <option value="equipmentholder">Equipment Holder</option>
+      </select>
+      <h5>Don't have an account? <a href="registerpage">Sign up</a></h5>
+
+      <button id="submit">Submit</button>
+      <button id="cancel">Cancel</button>
+
+      <div class="shape1"></div>
+      <div class="shape2"></div>
+      <div class="shape3"></div>
+      <div class="shape4"></div>
+    </form>
+  </div>
+</body>
+
+</html>

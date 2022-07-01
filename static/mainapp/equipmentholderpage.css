@@ -1,0 +1,226 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h1 {
+    font-family: 'Patua One', cursive;
+  }
+  
+  header {
+    background:#27363f;
+    width:100%;
+    padding:0px;
+    color:white;
+    text-align:center;
+  }
+  
+  a {
+    text-decoration:none;
+    color:inherit;
+  }
+  
+  nav ul {
+    background-color:#446274;
+    overflow:hidden;
+    color:white;
+    padding:0;
+    margin:0;
+    text-align:center;
+    -webkit-transition:max-height 0.4s;
+    -ms-transition:max-height 0.4s;
+    -moz-transition:max-height 0.4s;
+    -o-transition:max-height 0.4s;
+    transition:max-height 0.4s;
+  }
+  
+  nav ul li {
+    display:inline-block;
+    padding:20px;
+  }
+  
+  nav ul li:hover {
+    background-color:#718e9e;
+  }
+  
+  section {
+    line-height: 1.5em;
+    font-size:0.9em;
+    padding:40px;
+    width:75%;
+    margin:0 auto;
+  }
+  
+    .handle {
+      width:100%;
+      background: #446274;
+      text-align:left;
+      box-sizing:border-box;
+      padding:15px 10px;
+      cursor:pointer;
+      color:white;
+      display:none;
+    }
+  
+  @media screen and (max-width:580px){
+    
+    nav ul {
+      max-height:0;
+    }
+    
+    .showing {
+      max-height:20em;
+    }
+    nav ul li {
+      width:100%;
+      box-sizing:border-box;
+      padding:15px;
+      text-align:left;
+    }
+     
+    .handle {
+      display:block;
+    }
+    
+  
+  }
+.mainimg{
+    background:url(/static/images/farming1.jpg);
+    background-size: 100% 100%;
+    height: 28em;
+}
+.info{
+    border: 2px solid black;
+    padding: 57px;
+    display: flex;
+    background: black;
+}
+.rent{
+    background: white;
+    border: 2px solid red;
+    display: inline-block;
+    width: 100em;
+    margin: 12px;
+    border-radius: 49px;
+}
+.cord{
+    border: 2px solid blue;
+    background: white;
+    display: inline-block;
+    width: 100em;
+    margin: 12px;
+    border-radius: 49px;
+}
+.img1{
+    background: 2px solid green;
+    background:url(/static/images/rent.jpg);
+    background-size:100% 100%;
+    height: 20em;
+    border-radius:50%;
+}
+.btn-15 {
+  width: 13em;
+    background: #b621fe;
+    border: none;
+    z-index: 1;
+    height: 3em;
+    margin: 14px;
+    border-radius: 2em;
+    font-size: 1.2em;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #663dff;
+  border-radius: 5px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 2px;
+}
+.sin{
+  text-align: center;
+  background:#27363f;
+}
+.but{
+  float: right;
+  text-align: center;
+  margin-top: 14px;
+  margin-right: 24px;
+  font-size: 1.2em;
+  border-radius: 12px;
+  height: 40px;
+  width: 107px;
+}
+.mainbox{
+  border: 2px solid red;
+  display: flex;
+  text-align: center;
+}
+.innerbox{
+  border: 2px solid black;
+  /* display: flex; */
+  /* flex-direction: row; */
+  display: inline-block;
+  width: 14em;
+  height:2em;
+}
+.mainbox1{
+  border: 2px solid red;
+  display: flex;
+  text-align: center;
+}
+.innerbox1{
+  border: 2px solid black;
+  /* display: flex; */
+  /* flex-direction: row; */
+  display: inline-block;
+  width: 14em;
+  padding-top: 15px;
+  height: auto;
+  border-radius: 14px;
+  margin: 3px;
+  /* color: wheat; */
+  background: wheat;
+}
+.b1{
+  background: 2px solid black;
+  border: 2px solid;
+  padding: -px;
+  /* width: 4em; */
+  background: #5ecf5e;
+  border-radius: 8px;
+  color:white;
+  font-size: 1.2em;
+}
+.b{
+  display: block;
+  /* border: 2px solid; */
+  margin: 6px;
+}
+.b2{
+  background: 2px solid black;
+  border: 2px solid;
+  padding: -px;
+  /* width: 4em; */
+  background:rgb(165, 62, 62);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2em;
+}

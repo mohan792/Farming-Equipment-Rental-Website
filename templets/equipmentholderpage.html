@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/mainapp/equipmentholderpage.css' %}">
+</head>
+
+<body>
+    {% load static %}
+
+    <div class="continer">
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Responsive Nav</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        </head>
+
+        <body>
+            <header>
+                {% if messages %}
+                <ul class="messages"
+                    style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </header>
+            <nav>
+                <ul>
+                    <a href="equipmentholderpage">
+                        <li>Home</li>
+                    </a>
+                    <a href="addequipment">
+                        <li>Add Equipment</li>
+                    </a>
+                    <a href="deleteequipment">
+                        <li>Edit details of equipment</li>
+                    </a>
+                    <button class="but"><a href="handleLogout">Logout</a></button>
+                </ul>
+                <div class="handle">Menu</div>
+            </nav>
+
+            <div class="container">
+                <div class="mainbox">
+                    <div class="innerbox">Applicant name</div>
+                    <div class="innerbox">Applicant address</div>
+                    <div class="innerbox">Equipment Name</div>
+                    <div class="innerbox">Take Date</div>
+                    <div class="innerbox">Return Date</div>
+                    <div class="innerbox">Total Rent</div>
+                    <div class="innerbox">Accept/Reject</div>
+                </div>
+                {% for i in requests %}
+                <div class="mainbox1">
+                    <div class="innerbox1">{{i.applicant_name}}</div>
+                    <div class="innerbox1">Village:{{i.applicant_village}} <br>
+                        Taluka:{{i.applicant_taluka}}
+                        <br>
+                        district: {{i.applicant_district}}}
+                    </div>
+                    <div class="innerbox1">{{i.equipment_name}}</div>
+                    <div class="innerbox1">{{i.take_date}}</div>
+                    <div class="innerbox1">{{i.give_date}}</div>
+                    <div class="innerbox1">{{i.total_rent}}</div>
+                    <div class="innerbox1">
+                       <div class="b"><buttton class="b1"> <a href="accept_request/{{i.equipment_id}},{{i.applicant_id}}">Accept</a> </buttton></div> 
+                       <div class="b"><buttton class="b1"> <a href="denied_request/{{i.equipment_id}},{{i.applicant_id}}">Rejects</a> </buttton></div> 
+                    </div>
+                </div>
+                {% endfor %}
+                <h2>History</h2>
+                {% for i in history %}
+                <div class="mainbox1">
+                    <div class="innerbox1">{{i.applicant_name}}</div>
+                    <div class="innerbox1">Village:{{i.applicant_village}} <br>
+                        Taluka:{{i.applicant_taluka}}
+                        <br>
+                        district: {{i.applicant_district}}}
+                    </div>
+                    <div class="innerbox1">{{i.equipment_name}}</div>
+                    <div class="innerbox1">{{i.take_date}}</div>
+                    <div class="innerbox1">{{i.give_date}}</div>
+                    <div class="innerbox1">{{i.total_rent}}</div>
+                    <div class="innerbox1">
+                       Accepted
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </body>
+
+        </html>
+    </div>
+    <script>
+        $('.handle').on('click', function () {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>

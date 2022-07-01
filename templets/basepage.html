@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/mainapp/basepage.css' %}">
+</head>
+
+<body>
+    {% load static %}
+
+    <div class="continer">
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Responsive Nav</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        </head>
+
+        <body>
+            <header>
+                {% if messages %}
+    <ul class="messages" style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+                <h1>Farming Equpiment Rental Website</h1>
+                
+            </header>
+            <nav>
+                <ul>
+                    <a href="#">
+                        <li>Home</li>
+                    </a>
+                    <a href="#">
+                        <li>About</li>
+                    </a>
+                    <a href="#">
+                        <li>Services</li>
+                    </a>
+                    <a href="#">
+                        <li>Products</li>
+                    </a>
+                    <a href="#">
+                        <li>Blog</li>
+                    </a>
+                    <a href="#">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+                <div class="handle">Menu</div>
+            </nav>
+            <div class="mainimg">
+
+            </div>
+            <div class="info">
+                <div class="rent" >
+    
+                    
+                    
+                </div>
+                <div class="cord">
+
+                    </div>
+                </div>
+
+            <div class="sin">
+                <button class="custom-btn btn-15"><a href="loginpage">Login</a> </button>
+                <!-- <button class="custom-btn btn-15"><a href="#">Register</a></button> -->
+            </div>
+        </body>
+
+        </html>
+    </div>
+    <script>
+        $('.handle').on('click', function () {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>

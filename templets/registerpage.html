@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'mainapp/registerpage.css' %}">
+</head>
+
+<body>
+    {% load static %}
+    {% if messages %}
+    <ul class="messages" style="background-color: black; color: wheat; border: 2px solid wheat; border-radius: 3px;">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  <div class="container">
+    
+    <form action="handleregister" method="post">
+        {% csrf_token %}
+      <h3>Register</h3>
+      <div>
+      <label for="username">Username:</label><br>
+      <input name="username" type="text" placeholder="Enter Username" size="40" required>
+    </div>
+    <div>
+      <label for="username">E-mail:</label><br>
+      <input name="email" type="text" placeholder="Enter Email" placeholder="Enter Password" size="40" required>
+    </div>
+    <div>
+        <label for="username">Password:</label><br>
+        <input name="password" type="password" placeholder="Enter password" size="40" required>
+      </div>
+      <div>
+        <label for="username"> Village:</label><br>
+        <input name="village" type="text" placeholder="Enter village name" size="40" required>
+      </div>
+      <div>
+        <label for="username">Taluka:</label><br>
+        <input name="taluka" type="text" placeholder="Enter taluka" size="40" required>
+      </div>
+      <div>
+        <label for="username">District:</label><br>
+        <input name="district" type="text" placeholder="Enter district" size="40" required>
+      </div>
+      <div>
+        <label for="username">Latitude:</label><br>
+        <input name="latitude" type="text" placeholder="Enter latitude" size="40" required>
+      </div>
+      <div>
+        <label for="username">Longitude:</label><br>
+        <input name="longitude"type="text" placeholder="Enter Longitude" size="40" required>
+      </div>
+      <div>
+        <label for="username">Phone_no:</label><br>
+        <input name="phoneno"type="text" placeholder="Enter Longitude" size="40" required>
+      </div>
+
+
+      <br><br>
+      <!-- <label for="post">login as</label>
+      <select name="" id="post">
+        <option value="applicant">Applicant</option>
+        <option value="equipmentholder">Equipment Holder</option>
+      </select> -->
+      <h5></h5>
+
+      <button id="submit" type="submit">Submit</button>
+      <div class="vedio"><a href="https://www.youtube.com/watch?v=r1Acwui5Qio" target="_blank">How to find latitude and longitude of location</a></div>
+
+      <div class="shape1"></div>
+      <div class="shape2"></div>
+      <div class="shape3"></div>
+      <div class="shape4"></div>
+    </form>
+  </div>
+</body>
+
+</html>
